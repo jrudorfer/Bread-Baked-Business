@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Preorder
+{% endblock %}
+
+{% block main %}
+
+         <div class="card container d-flex align-items-center justify-content-center">
+            <div class="card-body">
+                <h5 class="card-title">Predobjednat</h5>
+                  <form action="/preorder" method="post" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <label for="symbol">Typ chleba:</label>
+                        <select class="form-control" id="chleba" name="chleba" type="text" required>
+                            <option value="">Typ chleba:</option>
+                            <option value="Chleba 1" {% if selected_option == 'chleba1' %}selected{% endif %}>Chleba 1</option>
+                            <option value="Chleba 2" {% if selected_option == 'chleba2' %}selected{% endif %}>Chleba 2</option>
+                            <option value="Chleba 3" {% if selected_option == 'chleba3' %}selected{% endif %}>Chleba 3</option>
+                        </select>
+                        <input class="form-control mx-auto w-auto" id="quantity" name="quantity" placeholder="quantity" type="number" required>
+                    </div>
+                        <div>
+                            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="firstname" name="firstname" placeholder="firstname" type="text" required>
+                            <input class="form-control mx-auto w-auto" id="surname" name="surname" placeholder="surname" type="text" required>
+                            <input class="form-control mx-auto w-auto" id="email" name="email" placeholder="email" type="text" required>
+                            <div class="md-form md-outline input-with-post-icon datepicker" inline="true">
+                                <input placeholder="Select date" type="text" id="date_for_order" name="date_for_order" class="form-control" requiured>
+                                <i class="fas fa-calendar input-prefix"></i>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Buy bread for tomorrow</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+
+
+        <script>
+            function validateForm() {
+                var emailInput = document.getElementById('email');
+                var emailValue = emailInput.value;
+
+                if(!emailValue.includes('@')){
+                    alert('Please enter valid email address');
+                    return false;
+                }
+
+                return true;
+                }
+        </script>
+
+{% endblock %}

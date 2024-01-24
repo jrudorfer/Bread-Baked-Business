@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Preorder
+{% endblock %}
+
+{% block main %}
+
+
+
+         <div class="card container d-flex align-items-center justify-content-center">
+            <div class="card-body">
+                <h5 class="card-title">Summary of your order with reference</h5>
+
+                <form>
+                    <!-- Use {{ variable_name }} to display variables in the template -->
+                    <label for="chleba">Typ chleba:</label>
+                    <input type="text" id="chleba" name="chleba" value="{{ chleba }}" readonly><br>
+
+                    <label for="quantity">Quantity:</label>
+                    <input type="text" id="var2" name="quantity" value="{{ quantity }}" readonly><br>
+
+                    <label for="firstname">First name:</label>
+                    <input type="text" id="firstname" name="firstname" value="{{ firstname }}" readonly><br>
+
+                    <label for="surname">Surname:</label>
+                    <input type="text" id="surname" name="surname" value="{{ surname }}" readonly><br>
+
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" value="{{ email }}" readonly><br>
+
+                    <label for="reference">Reference:</label>
+                    <input type="text" id="reference" name="reference" value="{{ reference }}" readonly><br>
+
+                    <label for="date_for_order">Date for order:</label>
+                    <input type="text" name ="date_for_order" value="{{ date_for_order }}" readonly><br>
+                </form>
+
+                <button onclick="downloadPDF()">Download PDF</button>
+                <script>
+                    function downloadPDF() {
+                        // Use html2pdf library to convert the entire page to PDF
+                        html2pdf(document.body, {
+                            margin: 10,
+                            filename: '{{ reference }} order_summary.pdf',
+                            image: { type: 'jpeg', quality: 0.98 },
+                            html2canvas: { scale: 2 },
+                            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+
+{% endblock %}

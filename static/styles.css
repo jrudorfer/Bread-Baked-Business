@@ -1,0 +1,74 @@
+/* Navigation and menu panel */
+nav
+{
+    font-size: x-large;
+    height: 90px;
+    display:flex
+    justify-content:center;
+    align-items:center;
+    padding: 10px;
+}
+
+/* Buttons inside navigation panel (currently not working, not sure why) */
+
+.nav-link
+{
+    color: black;
+}
+
+.logo
+{
+height: 80px;
+max-heigh:100%;
+margin-right:10px;
+}
+
+.logo-container
+{
+margin-right: auto; /* Push the logo to the left edge of the page */
+}
+
+/* Body styles (background etc) */
+
+body
+{
+    background-image: url('background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    height:100vh;
+}
+
+.btn-primary
+{
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+/* Card styles */
+
+#container
+{
+    font-size: x-large;
+}
+
+#carousel
+{
+    margin-bottom: 20px; /* Adjust the value to increase or decrease the margin */
+}
+/* Apply margin to the second div */
+
+#gallery
+{
+    margin-top: 20px; /* Adjust the value to increase or decrease the margin */
+    margin-left: 30px;
+    margin-right: 30px;
+}
+

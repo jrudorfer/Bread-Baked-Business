@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block main %}
+
+
+    {% if order %}
+    <div class="card container d-flex align-items-center justify-content-center">
+        <div class="card-body">
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Surname</th>
+                        <th>Bread</th>
+                        <th>Quantity</th>
+                        <th>email</th>
+                        <th>date_for_order</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for single_order in order %}
+                        <tr>
+                            <td>{{ single_order.firstname }}</td>
+                            <td>{{ single_order.surname }}</td>
+                            <td>{{ single_order.bread }}</td>
+                            <td>{{ single_order.quantity }}</td>
+                            <td>{{ single_order.email }}</td>
+                            <td>{{ single_order.date_for_order }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

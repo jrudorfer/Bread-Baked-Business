@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Preorder
+{% endblock %}
+
+{% block main %}
+
+         <div class="card container d-flex align-items-center justify-content-center">
+            <div class="card-body">
+                <h5 class="card-title">Probiha platba</h5>
+                    </div>
+                    <form action="/payment_simulation" method="post">
+                        <div>
+                            <button class="btn btn-primary" type="submit">Zaplaceno</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+
+
+{% endblock %}
